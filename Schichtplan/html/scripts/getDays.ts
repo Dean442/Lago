@@ -9,19 +9,20 @@ function saveDate(firstDay){
       let fDay:Date = firstDay;
       let fDayNr = firstDay.getDay();
       let lDay:Date = getLastDay(firstDay);
-      var Excel = require('exceljs');
-      var workbook = new Excel.Workbook();
+      console.log(fDayNr);
+      // var Excel = require('exceljs');
+      // var workbook = new Excel.Workbook();
 
-        workbook.xlsx.readFile('try.xlsx')
-          .then(function() {
-          var worksheet = workbook.getWorksheet('August');
+      //   workbook.xlsx.readFile('try.xlsx')
+      //     .then(function() {
+      //     var worksheet = workbook.getWorksheet('August');
 
-          for(){
+      //     for(){
 
-          };
+      //     };
 
-          return workbook.xlsx.writeFile('new.xlsx');
-      })
+      //     return workbook.xlsx.writeFile('new.xlsx');
+      // })
 
   }
 
