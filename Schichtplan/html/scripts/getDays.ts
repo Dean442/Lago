@@ -10,6 +10,8 @@ function saveDate(firstDay){
       let fDayNr = firstDay.getDay();
       let lDay:Date = getLastDay(firstDay);
       console.log(fDayNr);
+      
+      console.log(lDay.getDate());
       // var Excel = require('exceljs');
       // var workbook = new Excel.Workbook();
 
