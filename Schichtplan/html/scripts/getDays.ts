@@ -1,10 +1,11 @@
 export{}
+var Excel = require('exceljs');
+var workbook = new Excel.Workbook();
 
-
-// let da = new Date();
-// console.log(da);
-// saveDate(da);
-// console.log(da);
+let da = new Date();
+console.log(da);
+saveDate(da);
+console.log(da);
 
 function getLastDay(date){
     return new Date(date.getFullYear(),date.getMonth()+1,0);

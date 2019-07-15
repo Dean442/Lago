@@ -1,10 +1,11 @@
 "use strict";
 exports.__esModule = true;
-var Excel = require("./node_modules/exceljs/modern.nodejs");
-// let da = new Date();
-// console.log(da);
-// saveDate(da);
-// console.log(da);
+var Excel = require('exceljs');
+var workbook = new Excel.Workbook();
+var da = new Date();
+console.log(da);
+saveDate(da);
+console.log(da);
 function getLastDay(date) {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0);
 }
