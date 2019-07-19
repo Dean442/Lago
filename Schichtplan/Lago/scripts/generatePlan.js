@@ -82,7 +82,7 @@ function saveDate(firstDay) {
     }
     ;
     // write to a file
-    workbook.xlsx.writeFile(month(fDay)+'.xlsx')
+    workbook.xlsx.writeFile('plan.xlsx')
         .then(function () {
         // done
     });
