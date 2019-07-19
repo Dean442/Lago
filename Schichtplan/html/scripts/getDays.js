@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var Excel = require('exceljs');
 var workbook = new Excel.Workbook();
-var da = new Date();
+var da = new Date("2019-08-01");
 console.log(da);
 saveDate(da);
 console.log(da);

@@ -15,8 +15,7 @@ app.get('/newWorker.html', (req, res)=>{
 })
 
 app.get('/download', (req,res)=>{
-    res.download(month+'.xlsx');
-
+    res.download('plan.xlsx', month+'.xlsx');
 })
 //get the file
 app.get('/plan/:date', function (req, res) {
