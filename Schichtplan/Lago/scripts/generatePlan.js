@@ -81,6 +81,9 @@ function saveDate(firstDay) {
         worksheet.getCell(cellDay).value = this.getDayOfWeek(currentDay.getDay());
     }
     ;
+
+    fill(worksheet);
+
     // write to a file
     workbook.xlsx.writeFile('plan.xlsx')
         .then(function () {
@@ -141,6 +144,11 @@ month[9] = "October";
 month[10] = "November";
 month[11] = "December";
 return  month[d.getMonth()];
+}
+
+function fill(worksheet){
+    var worksheet = worksheet;
+    
 }
 
 module.exports.saveDate = saveDate;
