@@ -1,0 +1,26 @@
+
+<body>
+
+
+              <div class="container">
+                <table style="width:50%">
+                  
+                  <tr>
+                    <th>Farbe</th>
+                    <th>Vorname</th>
+                    <th>Nachname</th> 
+                    
+                  </tr>
+                  {{# each items }}
+                  <tr>
+                    <td style="background-color: #{{this.color}}; width: 5%;"></td>
+                    <td >{{this.Vorname}}</td>
+                    <td>{{this.Nachname}}</td>
+                    
+                  </tr>
+                  {{/each}}
+                </table>
+             
+              </div>
+
+</body>

@@ -1,3 +1,7 @@
+//setup db 
+const mongoose = require('mongoose');
+var mongoDB = 'mongodb://127.0.0.1/Lago';
+
 function getLastDay(date) {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0);
 }
@@ -81,6 +85,9 @@ function saveDate(firstDay) {
         worksheet.getCell(cellDay).value = this.getDayOfWeek(currentDay.getDay());
     }
     ;
+
+    fill(worksheet);
+
     // write to a file
     workbook.xlsx.writeFile('plan.xlsx')
         .then(function () {
@@ -141,6 +148,29 @@ month[9] = "October";
 month[10] = "November";
 month[11] = "December";
 return  month[d.getMonth()];
+}
+
+function fill(worksheet){
+
+    mongoose.connect(mongoDB, { useNewUrlParser: true });
+
+    //Get the default connection
+    var db = mongoose.connection;
+
+    //Bind connection to error event (to get notification of connection errors)
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+    //setup logic
+
+
+
+
+    //fill in worksheet
+    var worksheet = worksheet;
+
+
+    //close db
+    db.close();
 }
 
 module.exports.saveDate = saveDate;

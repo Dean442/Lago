@@ -1,0 +1,35 @@
+
+<body>
+ 
+              
+<div class="container">
+    <form action="/api/workers"  method="post">
+        <div class="form">
+            Vorname: <br>
+            <input type="text" name="Vorname" ><br>
+            Nachname: <br>
+            <input type="text" name="Nachname" ><br>
+            select color: <br>
+            <input type="color" name="favcolor" value="#ff0000"><br>
+       
+            
+            Anstellung: <br>
+            <input type="checkbox" name="Schichtleitung" unchecked> Schichtleitung<br>
+            
+   
+            Kann Arbeiten an: <br>
+            <input type="checkbox" name="Montag" value="false"> Montag<br>
+            <input type="checkbox" name="Dienstag" value="false" > Dienstag<br>
+            <input type="checkbox" name="Mittwoch" value="false"> Mittwoch<br>
+            <input type="checkbox" name="Donnerstag" value="false"> Donnerstag<br>  
+            <input type="checkbox" name="Freitag" value="false"> Freitag<br>
+            <input type="checkbox" name="Samstag" value="false"> Samstag<br>
+            <input type="checkbox" name="Sonntag" value="false"> Sonntag<br>
+            <input type="date" name="FerienVon"><br>
+            <input type="date" name="FerienBis"><br>
+    
+            <button  class="btn btn-danger"  type="submit" value="Send">Submit</button>
+        </div>
+    </form> 
+</div>
+</body>
