@@ -28,7 +28,7 @@
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" style="color:black" href="index.html">Home
+          <a class="nav-link" style="color:black" href="/">Home
           </a>
         </li>
   
@@ -37,8 +37,8 @@
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Dropdown</a>
           <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/newWorker.html">Mitarbeiter hinzu</a>
-            <a class="dropdown-item" href="#">Mitarbeiter entfernen</a>
+            <a class="dropdown-item" href="/worker.html">manage Mitarbeiter</a>
+            <a class="dropdown-item" href="#"></a>
           </div>
         </li>
       </ul>
@@ -73,28 +73,22 @@
             </form>
         </div>
     </div>
+
+    <script> 
+      document.getElementById("dateInput").addEventListener("change", function() { 
+         var input = this.value;
+         var dateEntered = new Date(input);
+         document.getElementById("date").innerHTML= dateEntered;
+     
+         document.getElementById("submitButton").href='/plan/'+ input;
+     
+     });
+     </script>
+     
 </body>
 
 
-<!-- <script>var exports = {"__esModule": true};</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/1.13.0/exceljs.js"></script>
-<script src="./scripts/getDays.js"></script> -->
 
- <script> 
- document.getElementById("dateInput").addEventListener("change", function() { 
-    var input = this.value;
-    var dateEntered = new Date(input);
-    document.getElementById("date").innerHTML= dateEntered;
-
-    document.getElementById("submitButton").href='/plan/'+ input;
-
-    // saveDate(dateEntered);
-    //console.log(getLastDay(dateEntered));
-    // console.log(dateEntered.getDay());
-    //console.log(input); //e.g. 2015-11-13
-    //console.log(dateEntered); //e.g. Fri Nov 13 2015 00:00:00 GMT+0000 (GMT Standard Time)
-});
-</script>
 
 
 <!-- style stuff and jquery -->

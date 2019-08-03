@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "mongo": "mongod"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +16,8 @@
     "@types/node": "^12.6.8",
     "exceljs": "^1.13.0",
     "express": "^4.17.1",
-    "mongoose": "^5.6.5",
-    "uuid": "^3.3.2"
+    "express-handlebars": "^3.1.0",
+    "mongoose": "^5.6.5"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
