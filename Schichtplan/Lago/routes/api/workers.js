@@ -62,6 +62,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
         Freitag: caster(workerJSON.Freitag),
         Samstag: caster(workerJSON.Samstag),
         Sonntag: caster(workerJSON.Sonntag),
+        HowmanyDays: req.body.HowmanyDays,
         FerienVon: req.body.FerienVon,
         FerienBis: req.body.FerienBis
      });
@@ -97,6 +98,7 @@ var WorkerModelSchema = new Schema({
   Freitag: Boolean,
   Samstag: Boolean,
   Sonntag: Boolean,
+  HowmanyDays: Number,
   FerienVon: Date,
   FerienBis: Date
 
@@ -104,6 +106,7 @@ var WorkerModelSchema = new Schema({
 
 // Compile model from schema
 var WorkerModel = mongoose.model('WorkerModel', WorkerModelSchema );
+
 
 function caster(toCast){
     switch (toCast) {

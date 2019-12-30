@@ -8,8 +8,21 @@ const app = express();
 const plan = require('./scripts/generatePlan');
 const hbs = require('express-handlebars');
 var assert= require('assert');
+var async = require('async');
 
+//get all workers from Database
+async function getCursor(){
+    var mongoDB = 'mongodb://127.0.0.1/Lago';
+    mongoose.connect(mongoDB, { useNewUrlParser: true });
 
+    //Get the default connection
+
+    var db = mongoose.connection;
+
+    var cursor = await db.collection('workermodels').find();
+    
+    return cursor;
+}
 
 // const planFiller = require('./scripts/planFiller');
 var month="";
@@ -36,24 +49,18 @@ app.get('/', (req, res)=>{
 app.use('/api/workers', require('./routes/api/workers'));
 
 // //form to generate new worker
-app.get('/worker.html', (req, res)=>{
-    var mongoDB = 'mongodb://127.0.0.1/Lago';
-
-    mongoose.connect(mongoDB, { useNewUrlParser: true });
-
-    //Get the default connection
-    var db = mongoose.connection;
+app.get('/worker.html', async (req, res)=>{
 
     var resultArray = [];
-    var cursor = db.collection('workermodels').find();
-
-    cursor.forEach(function(doc, err){
-       
+    var curs = await getCursor();
+    curs.forEach(function(doc, err){
         resultArray.push(doc);
-    },function(){
+    },async function(){
+        
+        res.render('workers', {title: 'workers', items: await resultArray});
         db.close();
-        res.render('workers', {title: 'workers', items: resultArray});
     });
+
 
     // res.sendFile(path.join(__dirname, 'public','workers.html'));
 });

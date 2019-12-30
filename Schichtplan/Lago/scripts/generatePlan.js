@@ -1,6 +1,5 @@
 //setup db 
-const mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/Lago';
+
 
 function getLastDay(date) {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0);
@@ -86,7 +85,13 @@ function saveDate(firstDay) {
     }
     ;
 
-    fill(worksheet);
+
+    arrayFill(worksheet);
+
+
+
+
+
 
     // write to a file
     workbook.xlsx.writeFile('plan.xlsx')
@@ -150,7 +155,10 @@ month[11] = "December";
 return  month[d.getMonth()];
 }
 
-function fill(worksheet){
+async function arrayFill(Montag, Dienstag, Mittwoch, Donnerstag,Freitag, Samstag, Sonntag){
+   
+    const mongoose = require('mongoose');
+    var mongoDB = 'mongodb://127.0.0.1/Lago';
 
     mongoose.connect(mongoDB, { useNewUrlParser: true });
 
@@ -163,11 +171,41 @@ function fill(worksheet){
     //setup logic
 
 
+        
+        
+        // var Dienstag = [ db.collection('wokermodels').find({Dienstag: true})];
+        // var Mittwoch = [db.collection('wokermodels').find({Mittwoch: true})];
+        // var Donnerstag = [db.collection('wokermodels').find({Donnerstag: true})];
+        // var Freitag = [db.collection('wokermodels').find({Freitag: true})];
+        // var Samstag = [db.collection('wokermodels').find({Samstag: true})];
+        // var Sonntag = [db.collection('wokermodels').find({Sonntag: true})];
+    
+        var resultArray = [];
+        var forMontag = await db.collection('workermodels').find();
+
+        while (forMontag.hasNext()) {
+            resultArray.push(forMontag.next())
+        }
+        
+
+
+        /**
+
+
+        forMontag.forEach(function(doc, err){
+            console.log(doc);
+            resultArray.push(doc);
+        },async function(){
+        
+            console.log(resultArray);
+        });
+
+ */
+
 
 
     //fill in worksheet
     var worksheet = worksheet;
-
 
     //close db
     db.close();
